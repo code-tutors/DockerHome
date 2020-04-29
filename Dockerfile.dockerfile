@@ -12,12 +12,12 @@ ENV NGINX_VERSION 1.13.6-1~stretch
 ENV NJS_VERSION   1.13.6.0.1.14-1~stretch
 # optional environment variable that's used in later lines and set as envvar when container is running
 # Create app directory
-WORKDIR /usr/src/app
+WORKDIR app
 
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
-COPY package*.json ./
+COPY ../expressjs-server/package*.json ./
 
 RUN npm install
 # If you are building your code for production
