@@ -3,21 +3,20 @@
 # NOTE: This file is slightly different than the video, because nginx versions have been updated 
 #       to match the latest standards from docker hub... but it's doing the same thing as the video
 #       describes
-FROM node:11
+FROM node:12
 # all images must have a FROM
 # usually from a minimal Linux distribution like debian or (even better) alpine
 # if you truly want to start with an empty container, use FROM scratch
 
-ENV NGINX_VERSION 1.13.6-1~stretch
-ENV NJS_VERSION   1.13.6.0.1.14-1~stretch
+
 # optional environment variable that's used in later lines and set as envvar when container is running
 # Create app directory
-WORKDIR app
+WORKDIR home/aju/expressjs-server
 
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
-COPY ../expressjs-server/package*.json ./
+COPY package*.json ./
 
 RUN npm install
 # If you are building your code for production
