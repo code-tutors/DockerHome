@@ -16,7 +16,7 @@ WORKDIR home/aju/app
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
-COPY ./expressjs-server/package.json ./
+COPY package.json ./
 
 RUN npm install
 # If you are building your code for production
@@ -25,7 +25,7 @@ RUN npm install
 
 # Bundle app source
 
-COPY ./expressjs-server/ ./
+COPY expressjs-server/ ./
 
 # forward request and error logs to docker log collector
 
